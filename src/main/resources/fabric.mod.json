@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "superflat-plus",
+  "version": "${version}",
+  "name": "SuperflatPlus",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/schro/SuperflatPlusFabric"
+  },
+  "license": "MIT",
+  "icon": "assets/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+    ],
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "app.bishan.superflatplus.SuperflatPlus"
+      }
+    ]
+  },
+  "mixins": [
+    "superflat-plus.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}",
+    "fabric-language-kotlin": ">=1.10.0+kotlin.1.9.0"
+  },
+  "accessWidener": "superflat_plus.accesswidener"
+}
