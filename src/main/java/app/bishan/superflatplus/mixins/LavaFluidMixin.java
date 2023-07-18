@@ -1,6 +1,7 @@
 package app.bishan.superflatplus.mixins;
 
 import app.bishan.superflatplus.SuperflatPlus;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.block.*;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.fluid.LavaFluid;
@@ -19,13 +20,12 @@ public class LavaFluidMixin {
 
 	@Redirect(method = "flow", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/WorldAccess;setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;I)Z"))
 	boolean flow$setBlockState(WorldAccess world, BlockPos pos, BlockState state, int fluidState) {
-
 		Block block = Blocks.STONE;
 
 		var biome = world.getBiome(pos).getKey();
 
-		if (biome.isPresent() && Objects.equals(biome.get().getValue().getNamespace(), SuperflatPlus.ID)) {
 
+		if (biome.isPresent() && SuperflatPlus.isSuperflat(world)) {
 			if (pos.getY() < 0)
 				block = Blocks.DEEPSLATE;
 		}

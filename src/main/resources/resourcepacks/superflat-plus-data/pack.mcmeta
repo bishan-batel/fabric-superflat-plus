@@ -1,0 +1,11 @@
+{
+  "features": {
+    "enabled": [
+      "superflat-plus:superflat_plus"
+    ]
+  },
+  "pack": {
+    "description": "Superflat+",
+    "pack_format": 15
+  }
+}

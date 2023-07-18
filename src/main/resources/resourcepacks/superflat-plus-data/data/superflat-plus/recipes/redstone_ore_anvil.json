@@ -1,0 +1,8 @@
+{
+  "type": "superflat-plus:anvil_drop",
+  "blocks": [
+    "minecraft:redstone_block",
+    "minecraft:stone"
+  ],
+  "result": "minecraft:redstone_ore"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "superflat-plus:anvil_drop",
+  "blocks": [
+    "minecraft:copper_block",
+    "minecraft:stone"
+  ],
+  "result": "minecraft:copper_ore"
+}

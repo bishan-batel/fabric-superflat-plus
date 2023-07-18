@@ -1,0 +1,8 @@
+{
+  "type": "superflat-plus:anvil_drop",
+  "blocks": [
+    "minecraft:diamond_block",
+    "minecraft:deepslate"
+  ],
+  "result": "minecraft:deepslate_diamond_ore"
+}

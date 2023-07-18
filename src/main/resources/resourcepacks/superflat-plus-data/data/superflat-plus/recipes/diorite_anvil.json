@@ -1,0 +1,7 @@
+{
+  "type": "superflat-plus:anvil_drop",
+  "blocks": [
+    "minecraft:polished_diorite"
+  ],
+  "result": "minecraft:diorite"
+}

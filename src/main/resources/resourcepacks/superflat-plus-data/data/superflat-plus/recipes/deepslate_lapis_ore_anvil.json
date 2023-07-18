@@ -1,0 +1,8 @@
+{
+  "type": "superflat-plus:anvil_drop",
+  "blocks": [
+    "minecraft:lapis_block",
+    "minecraft:deepslate"
+  ],
+  "result": "minecraft:deepslate_lapis_ore"
+}

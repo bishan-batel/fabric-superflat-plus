@@ -4,13 +4,13 @@
   "package": "app.bishan.superflatplus.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "AnvilBlockMixin",
+    "FeatureBuilderMixin",
     "FluidBlockMixin",
     "LavaFluidMixin",
-    "MultiNoiseBiomeSourceParameterList$PresetMixin",
-    "MultiNoiseBiomeSourceParameterListMixin"
+    "RecipeTypeMixin"
   ],
-  "client": [
-  ],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   }
