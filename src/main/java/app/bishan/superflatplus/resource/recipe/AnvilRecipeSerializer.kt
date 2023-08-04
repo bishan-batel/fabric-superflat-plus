@@ -4,6 +4,7 @@ import app.bishan.superflatplus.SuperflatPlus
 import com.google.gson.JsonObject
 import net.minecraft.block.Block
 import net.minecraft.network.PacketByteBuf
+import net.minecraft.recipe.Ingredient
 import net.minecraft.recipe.RecipeSerializer
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
@@ -16,9 +17,9 @@ object AnvilRecipeSerializer : RecipeSerializer<AnvilDropRecipe> {
 	}
 
 	override fun read(id: Identifier, json: JsonObject): AnvilDropRecipe {
-		val result = Registries.ITEM.get(Identifier.tryParse(json.get("result").asString)!!).defaultStack
+		val result = Registries.ITEM.get(Identifier.tryParse(json["result"].asString)!!).defaultStack
 
-		val blocks = json.getAsJsonArray("blocks").map {
+		val blocks = json["blocks"].asJsonArray.map {
 			Block.getBlockFromItem(
 				Registries.ITEM.get(Identifier.tryParse(it.asString))
 			)
@@ -38,8 +39,8 @@ object AnvilRecipeSerializer : RecipeSerializer<AnvilDropRecipe> {
 	override fun write(buf: PacketByteBuf, recipe: AnvilDropRecipe) {
 		buf.writeIdentifier(recipe.id)
 		buf.writeItemStack(recipe.result)
-		buf.writeCollection(recipe.ingredients) { buf: PacketByteBuf, block: Block ->
-			buf.writeIdentifier(Registries.BLOCK.getId(block))
+		buf.writeCollection(recipe.ingredients) { bufSlice: PacketByteBuf, block: Block ->
+			bufSlice.writeIdentifier(Registries.BLOCK.getId(block))
 		}
 	}
 }
