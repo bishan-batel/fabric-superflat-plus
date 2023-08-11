@@ -2,7 +2,6 @@ package app.bishan.superflatplus.resource
 
 import app.bishan.superflatplus.SuperflatPlus
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener
-import net.minecraft.recipe.CraftingRecipe
 import net.minecraft.resource.ResourceManager
 import net.minecraft.util.Identifier
 import net.minecraft.util.JsonHelper

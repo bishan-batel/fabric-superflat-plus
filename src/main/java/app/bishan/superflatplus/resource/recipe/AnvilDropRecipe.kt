@@ -3,12 +3,8 @@ package app.bishan.superflatplus.resource.recipe
 import app.bishan.superflatplus.SuperflatPlus.isSuperflat
 import app.bishan.superflatplus.resource.CustomRecipeManager
 import net.minecraft.block.Block
-import net.minecraft.block.Blocks
-import net.minecraft.inventory.RecipeInputInventory
 import net.minecraft.item.ItemStack
 import net.minecraft.recipe.Recipe
-import net.minecraft.recipe.RecipeSerializer
-import net.minecraft.recipe.RecipeType
 import net.minecraft.registry.DynamicRegistryManager
 import net.minecraft.util.Identifier
 import net.minecraft.world.World

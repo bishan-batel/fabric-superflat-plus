@@ -4,7 +4,6 @@ import app.bishan.superflatplus.SuperflatPlus
 import com.google.gson.JsonObject
 import net.minecraft.block.Block
 import net.minecraft.network.PacketByteBuf
-import net.minecraft.recipe.Ingredient
 import net.minecraft.recipe.RecipeSerializer
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry

@@ -1,7 +1,6 @@
 package app.bishan.superflatplus.resource
 
 import app.bishan.superflatplus.SuperflatPlus
-import app.bishan.superflatplus.resource.recipe.AnvilDropInventory
 import app.bishan.superflatplus.resource.recipe.AnvilDropRecipe
 import net.minecraft.recipe.Recipe
 import net.minecraft.recipe.RecipeType

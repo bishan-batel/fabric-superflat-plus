@@ -4,7 +4,6 @@ import net.minecraft.block.Block
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.inventory.Inventory
 import net.minecraft.item.ItemStack
-import net.minecraft.item.Items
 
 class AnvilDropInventory(private val blocks: MutableList<Block>) : Inventory {
 

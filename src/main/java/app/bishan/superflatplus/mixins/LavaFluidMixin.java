@@ -1,19 +1,15 @@
 package app.bishan.superflatplus.mixins;
 
 import app.bishan.superflatplus.SuperflatPlus;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.minecraft.block.*;
-import net.minecraft.fluid.FlowableFluid;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.fluid.LavaFluid;
-import net.minecraft.fluid.WaterFluid;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldAccess;
-import net.minecraft.world.dimension.DimensionType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-
-import java.util.Objects;
 
 @Mixin(LavaFluid.class)
 public class LavaFluidMixin {
