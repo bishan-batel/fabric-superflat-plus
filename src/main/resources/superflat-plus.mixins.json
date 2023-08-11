@@ -5,11 +5,12 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AnvilBlockMixin",
-    "BuriedTreasureGeneratorMixin",
+    "BuriedTreasureGenerator$PieceMixin",
     "FeatureBuilderMixin",
     "FluidBlockMixin",
     "LavaFluidMixin",
-    "RecipeTypeMixin"
+    "RecipeTypeMixin",
+    "WoodlandMansionStructureMixin"
   ],
   "client": [
   ],
