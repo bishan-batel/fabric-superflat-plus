@@ -13,6 +13,10 @@
   "environment": "*",
   "entrypoints": {
     "client": [
+      {
+        "adapter": "kotlin",
+        "value": "app.bishan.superflatplus.client.SuperflatPlusClient"
+      }
     ],
     "main": [
       {
