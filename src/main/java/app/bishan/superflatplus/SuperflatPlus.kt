@@ -29,6 +29,7 @@ object SuperflatPlus : ModInitializer {
 	@JvmStatic
 	fun id(key: String) = Identifier(ID, key)
 
+	@JvmField
 	val logger: Logger = LoggerFactory.getLogger(ID)
 
 	@JvmStatic

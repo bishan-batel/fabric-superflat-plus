@@ -52,18 +52,17 @@ public abstract class CreateWorldMixin {
 		if (!SuperflatPlus.WORLD_PRESET_ENABLED) return;
 
 		var preset = worldCreator.getWorldType().preset();
-		var logger = SuperflatPlus.INSTANCE.getLogger();
 
 		if (!preset.matchesKey(SuperflatPlus.WORLD_PRESET)) return;
 
 		ResourcePackManager manager = getScannedPack(worldCreator.getGeneratorOptionsHolder().dataConfiguration()).getSecond();
 
-		logger.info("{}", manager.getProfiles());
+		SuperflatPlus.logger.info("{}", manager.getProfiles());
 
 		if (manager.enable("superflat-plus:superflat-plus-data")) {
-			logger.info("worked");
+			SuperflatPlus.logger.info("worked");
 		} else {
-			logger.info("not worked");
+			SuperflatPlus.logger.info("not worked");
 		}
 
 		var enabledList = ImmutableList.copyOf(manager.getEnabledNames());
