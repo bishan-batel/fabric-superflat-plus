@@ -1,16 +1,8 @@
 package app.bishan.superflatplus.worldgen;
 
 import com.mojang.datafixers.util.Pair;
-
-import java.util.List;
-import java.util.function.Consumer;
-
 import net.minecraft.SharedConstants;
-import net.minecraft.registry.BuiltinRegistries;
-import net.minecraft.registry.RegistryEntryLookup;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.*;
 import net.minecraft.util.function.ToFloatFunction;
 import net.minecraft.util.math.Spline;
 import net.minecraft.world.biome.Biome;
@@ -20,6 +12,8 @@ import net.minecraft.world.biome.source.util.VanillaTerrainParametersCreator;
 import net.minecraft.world.gen.densityfunction.DensityFunction;
 import net.minecraft.world.gen.densityfunction.DensityFunctionTypes;
 import net.minecraft.world.gen.densityfunction.DensityFunctions;
+
+import java.util.function.Consumer;
 
 @SuppressWarnings("unchecked")
 public final class FlatBiomeParameters {

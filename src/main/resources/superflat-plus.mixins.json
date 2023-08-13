@@ -13,6 +13,7 @@
     "WoodlandMansionStructureMixin"
   ],
   "client": [
+    "CreateWorldMixin"
   ],
   "injectors": {
     "defaultRequire": 1

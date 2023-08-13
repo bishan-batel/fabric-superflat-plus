@@ -167,15 +167,35 @@ internal object FlatBiomeKeys {
 
 	@JvmField
 	val DEEP_DARK = register("deep_dark")
+
+	@JvmField
 	val NETHER_WASTES = register("nether_wastes")
+
+	@JvmField
 	val WARPED_FOREST = register("warped_forest")
+
+	@JvmField
 	val CRIMSON_FOREST = register("crimson_forest")
+
+	@JvmField
 	val SOUL_SAND_VALLEY = register("soul_sand_valley")
+
+	@JvmField
 	val BASALT_DELTAS = register("basalt_deltas")
+
+	@JvmField
 	val THE_END = register("the_end")
+
+	@JvmField
 	val END_HIGHLANDS = register("end_highlands")
+
+	@JvmField
 	val END_MIDLANDS = register("end_midlands")
+
+	@JvmField
 	val SMALL_END_ISLANDS = register("small_end_islands")
+
+	@JvmField
 	val END_BARRENS = register("end_barrens")
 	private fun register(name: String): RegistryKey<Biome> =
 		RegistryKey.of(RegistryKeys.BIOME, Identifier(SuperflatPlus.ID, name))

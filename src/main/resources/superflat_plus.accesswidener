@@ -2,3 +2,4 @@ accessWidener   v1      named
 accessible      class   net/minecraft/world/gen/WorldPresets$Registrar
 accessible      class   net/minecraft/world/biome/source/MultiNoiseBiomeSourceParameterList$Preset$BiomeSourceFunction
 accessible      method  net/minecraft/world/biome/source/MultiNoiseBiomeSourceParameterList$Preset getOverworldEntries (Ljava/util/function/Function;)Lnet/minecraft/world/biome/source/util/MultiNoiseUtil$Entries;
+accessible      method  net/minecraft/client/gui/screen/world/WorldCreator updateDataConfiguration (Lnet/minecraft/resource/DataConfiguration;)Z
