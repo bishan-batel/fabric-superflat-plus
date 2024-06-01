@@ -17,19 +17,19 @@ import java.util.List;
 
 @Mixin(RecipeType.class)
 public interface RecipeTypeMixin {
-	private static <T extends Recipe<?>> void register(CustomRecipeManager.CustomRecipeType<T> type) {
-		Registry.register(
-				Registries.RECIPE_TYPE,
-				new Identifier(SuperflatPlus.ID, type.getId()),
-				CustomRecipeManager.ANVIL_DROP
-		);
-	}
+    private static <T extends Recipe<?>> void register(CustomRecipeManager.CustomRecipeType<T> type) {
+        Registry.register(
+                Registries.RECIPE_TYPE,
+                new Identifier(SuperflatPlus.ID, type.getId()),
+                CustomRecipeManager.ANVIL_DROP
+        );
+    }
 
-	@Inject(method = "<clinit>", at = @At("TAIL"))
-	private static void clInit(CallbackInfo ci) {
-		AnvilRecipeSerializer.bootstrap();
-		List.<CustomRecipeManager.CustomRecipeType<?>>of(
-				CustomRecipeManager.ANVIL_DROP
-		).forEach(RecipeTypeMixin::register);
-	}
+    @Inject(method = "<clinit>", at = @At("TAIL"))
+    private static void clInit(CallbackInfo ci) {
+        AnvilRecipeSerializer.bootstrap();
+        List.<CustomRecipeManager.CustomRecipeType<?>>of(
+                CustomRecipeManager.ANVIL_DROP
+        ).forEach(RecipeTypeMixin::register);
+    }
 }

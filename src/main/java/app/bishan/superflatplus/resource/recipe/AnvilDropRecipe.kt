@@ -7,24 +7,55 @@ import net.minecraft.item.ItemStack
 import net.minecraft.recipe.Recipe
 import net.minecraft.registry.DynamicRegistryManager
 import net.minecraft.util.Identifier
+import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 
 class AnvilDropRecipe(@JvmField val id: Identifier, val result: ItemStack, val ingredients: List<Block>) :
-	Recipe<AnvilDropInventory> {
-	override fun matches(inventory: AnvilDropInventory?, world: World?): Boolean =
-		world?.isSuperflat == true && inventory?.matches(ingredients) == true
+    Recipe<AnvilDropInventory> {
 
-	override fun craft(inventory: AnvilDropInventory?, registryManager: DynamicRegistryManager?): ItemStack {
-		return getOutput(registryManager)
-	}
+    companion object {
+        @JvmStatic
+        fun mixinOnLanding(world: World, pos: BlockPos) {
+            // attempt to get first match with given block order
+            world.recipeManager.getFirstMatch(
+                CustomRecipeManager.ANVIL_DROP,
+                AnvilDropInventory(
+                    mutableListOf(
+                        world.getBlockState(pos.down()).block, world.getBlockState(pos.down(2)).block
+                    )
+                ),
+                world
+            ).ifPresent { recipe ->
+                val offset = recipe.ingredients.size
 
-	override fun fits(width: Int, height: Int) = true
+                (0 until offset).forEach { i ->
+                    world.breakBlock(pos.down(i + 1), false)
+                }
 
-	override fun getOutput(registryManager: DynamicRegistryManager?) = result
+                world.setBlockState(
+                    pos.down(offset), Block.getBlockFromItem(recipe.result.item).defaultState
+                )
+            }
+        }
 
-	override fun getId() = id
+    }
 
-	override fun getSerializer() = AnvilRecipeSerializer
+    override fun matches(inventory: AnvilDropInventory?, world: World?): Boolean =
+        world?.isSuperflat == true && inventory?.matches(ingredients) == true
 
-	override fun getType() = CustomRecipeManager.ANVIL_DROP
+    override fun craft(inventory: AnvilDropInventory?, registryManager: DynamicRegistryManager?): ItemStack {
+        return getOutput(registryManager)
+    }
+
+    override fun fits(width: Int, height: Int) = true
+
+    override fun getOutput(registryManager: DynamicRegistryManager?) = result
+
+    override fun getId() = id
+
+    override fun getSerializer() = AnvilRecipeSerializer
+
+    override fun getType() = CustomRecipeManager.ANVIL_DROP
+
+
 }

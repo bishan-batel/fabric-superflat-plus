@@ -3,6 +3,7 @@ package app.bishan.superflatplus.mixins;
 import app.bishan.superflatplus.SuperflatPlus;
 import app.bishan.superflatplus.resource.CustomRecipeManager;
 import app.bishan.superflatplus.resource.recipe.AnvilDropInventory;
+import app.bishan.superflatplus.resource.recipe.AnvilDropRecipe;
 import net.minecraft.block.AnvilBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -19,28 +20,10 @@ import java.util.List;
 @Mixin(AnvilBlock.class)
 public class AnvilBlockMixin {
 
-	@Inject(method = "onLanding", at = @At("TAIL"))
-	public void onLanding(World world, BlockPos pos, BlockState fallingBlockState, BlockState currentStateInPos, FallingBlockEntity fallingBlockEntity, CallbackInfo ci) {
-		if (!SuperflatPlus.isSuperflat(world)) return;
+    @Inject(method = "onLanding", at = @At("TAIL"))
+    public void onLanding(World world, BlockPos pos, BlockState fallingBlockState, BlockState currentStateInPos, FallingBlockEntity fallingBlockEntity, CallbackInfo ci) {
+        if (!SuperflatPlus.isSuperflat(world)) return;
+        AnvilDropRecipe.mixinOnLanding(world, pos);
+    }
 
-		world.getRecipeManager().getFirstMatch(
-				CustomRecipeManager.ANVIL_DROP,
-				new AnvilDropInventory(List.of(
-						world.getBlockState(pos.down()).getBlock(),
-						world.getBlockState(pos.down(2)).getBlock()
-				)),
-				world
-		).ifPresent(recipe -> {
-			var offset = recipe.getIngredients().size();
-			for (int i = 0; i < offset; i++) {
-				world.breakBlock(pos.down(i + 1), false);
-			}
-
-			world.setBlockState(
-					pos.down(offset),
-					Block.getBlockFromItem(recipe.getResult().getItem()).getDefaultState()
-			);
-
-		});
-	}
 }
