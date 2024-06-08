@@ -3,14 +3,17 @@ package app.bishan.superflatplus.resource.recipe
 import app.bishan.superflatplus.SuperflatPlus.isSuperflat
 import app.bishan.superflatplus.resource.CustomRecipeManager
 import net.minecraft.block.Block
+import net.minecraft.block.BlockState
 import net.minecraft.item.ItemStack
+import net.minecraft.loot.context.LootContextParameterSet
+import net.minecraft.loot.context.LootContextParameters
 import net.minecraft.recipe.Recipe
 import net.minecraft.registry.DynamicRegistryManager
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 
-class AnvilDropRecipe(@JvmField val id: Identifier, val result: ItemStack, val ingredients: List<Block>) :
+class AnvilDropRecipe(val result: BlockState, val ingredients: List<BlockState>) :
     Recipe<AnvilDropInventory> {
 
     companion object {
@@ -21,19 +24,19 @@ class AnvilDropRecipe(@JvmField val id: Identifier, val result: ItemStack, val i
                 CustomRecipeManager.ANVIL_DROP,
                 AnvilDropInventory(
                     mutableListOf(
-                        world.getBlockState(pos.down()).block, world.getBlockState(pos.down(2)).block
+                        world.getBlockState(pos.down()), world.getBlockState(pos.down(2))
                     )
                 ),
                 world
             ).ifPresent { recipe ->
-                val offset = recipe.ingredients.size
+                val offset = recipe.value.ingredients.size
 
                 (0 until offset).forEach { i ->
                     world.breakBlock(pos.down(i + 1), false)
                 }
 
                 world.setBlockState(
-                    pos.down(offset), Block.getBlockFromItem(recipe.result.item).defaultState
+                    pos.down(offset), recipe.value.result
                 )
             }
         }
@@ -44,14 +47,14 @@ class AnvilDropRecipe(@JvmField val id: Identifier, val result: ItemStack, val i
         world?.isSuperflat == true && inventory?.matches(ingredients) == true
 
     override fun craft(inventory: AnvilDropInventory?, registryManager: DynamicRegistryManager?): ItemStack {
-        return getOutput(registryManager)
+        return getResult(registryManager);
     }
 
     override fun fits(width: Int, height: Int) = true
 
-    override fun getOutput(registryManager: DynamicRegistryManager?) = result
-
-    override fun getId() = id
+    override fun getResult(registryManager: DynamicRegistryManager?): ItemStack {
+        return result.block.asItem().defaultStack
+    }
 
     override fun getSerializer() = AnvilRecipeSerializer
 

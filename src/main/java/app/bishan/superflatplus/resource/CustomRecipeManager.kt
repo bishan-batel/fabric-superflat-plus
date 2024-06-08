@@ -6,16 +6,17 @@ import net.minecraft.recipe.Recipe
 import net.minecraft.recipe.RecipeType
 
 object CustomRecipeManager {
-	fun bootstrap() {
-		SuperflatPlus.logger.info("Loading Custom Recipe Types")
-	}
+    fun bootstrap() {
+        SuperflatPlus.logger.info("Loading Custom Recipe Types")
+    }
 
-	@JvmField
-	val ANVIL_DROP: CustomRecipeType<AnvilDropRecipe> = create("anvil_drop")
+    @JvmField
+    val ANVIL_DROP: CustomRecipeType<AnvilDropRecipe> = create("anvil_drop")
 
-	private fun <T : Recipe<*>> create(id: String): CustomRecipeType<T> = CustomRecipeType(id)
+    @Suppress("SameParameterValue")
+    private fun <T : Recipe<*>> create(id: String): CustomRecipeType<T> = CustomRecipeType(id)
 
-	class CustomRecipeType<T : Recipe<*>>(val id: String) : RecipeType<T> {
-		override fun toString(): String = id
-	}
+    class CustomRecipeType<T : Recipe<*>>(val id: String) : RecipeType<T> {
+        override fun toString(): String = id
+    }
 }
