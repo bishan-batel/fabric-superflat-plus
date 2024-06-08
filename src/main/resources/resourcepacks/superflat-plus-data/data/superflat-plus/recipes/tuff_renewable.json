@@ -8,8 +8,5 @@
       "item": "minecraft:cobblestone"
     }
   ],
-  "result": {
-    "item": "minecraft:tuff",
-    "count": 1
-  }
+  "result": "minecraft:tuff"
 }
