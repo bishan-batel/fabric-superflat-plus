@@ -1,8 +1,1 @@
-{
-  "type": "superflat-plus:anvil_drop",
-  "blocks": [
-    "minecraft:copper_block",
-    "minecraft:deepslate"
-  ],
-  "result": "minecraft:deepslate_copper_ore"
-}
+{"type": "superflat-plus:anvil_drop", "blocks": [{"Name": "minecraft:copper_block", "Properties": {}}, {"Name": "minecraft:deepslate", "Properties": {}}], "result": {"Name": "minecraft:deepslate_copper_ore", "Properties": {}}}

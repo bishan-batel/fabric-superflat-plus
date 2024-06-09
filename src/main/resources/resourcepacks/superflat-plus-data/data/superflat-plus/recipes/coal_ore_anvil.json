@@ -1,8 +1,1 @@
-{
-  "type": "superflat-plus:anvil_drop",
-  "blocks": [
-    "minecraft:coal_block",
-    "minecraft:stone"
-  ],
-  "result": "minecraft:coal_ore"
-}
+{"type": "superflat-plus:anvil_drop", "blocks": [{"Name": "minecraft:coal_block", "Properties": {}}, {"Name": "minecraft:stone", "Properties": {}}], "result": {"Name": "minecraft:coal_ore", "Properties": {}}}

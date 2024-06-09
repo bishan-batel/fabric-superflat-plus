@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AnvilBlockMixin",
+    "BasicTemplateStructureMixin",
     "BuriedTreasureGenerator$PieceMixin",
     "FeatureBuilderMixin",
     "FluidBlockMixin",

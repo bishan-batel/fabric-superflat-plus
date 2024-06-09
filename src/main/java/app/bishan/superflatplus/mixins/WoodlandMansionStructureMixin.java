@@ -3,6 +3,7 @@ package app.bishan.superflatplus.mixins;
 import app.bishan.superflatplus.SuperflatPlus;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.gen.structure.DesertPyramidStructure;
 import net.minecraft.world.gen.structure.Structure;
 import net.minecraft.world.gen.structure.WoodlandMansionStructure;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,7 +29,7 @@ public abstract class WoodlandMansionStructureMixin extends Structure {
             BlockRotation blockRotation
     ) {
         // use of deprecated method bc Mojang does it bruh
-        @SuppressWarnings("deprecation") var pos = this.getShiftedPos(context, blockRotation);
+        @SuppressWarnings("deprecation") var pos = getShiftedPos(context, blockRotation);
 
         // Snap position to y60 to pass structure placement check,
         // This shouldn't have many consequences in normal worlds because

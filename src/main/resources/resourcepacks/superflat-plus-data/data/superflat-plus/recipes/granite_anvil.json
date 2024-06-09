@@ -1,7 +1,1 @@
-{
-  "type": "superflat-plus:anvil_drop",
-  "blocks": [
-    "minecraft:polished_granite"
-  ],
-  "result": "minecraft:granite"
-}
+{"type": "superflat-plus:anvil_drop", "blocks": [{"Name": "minecraft:polished_granite", "Properties": {}}], "result": {"Name": "minecraft:granite", "Properties": {}}}
