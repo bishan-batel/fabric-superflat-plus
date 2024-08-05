@@ -1,1 +1,1 @@
-{"type": "superflat-plus:anvil_drop", "blocks": [{"Name": "minecraft:polished_andesite", "Properties": {}}], "result": {"Name": "minecraft:andesite", "Properties": {}}}
+{"type": "superflat-plus:anvil_drop", "blocks": [{"Name": "minecraft:polished_andesite"}], "result": {"Name": "minecraft:andesite"}}

@@ -1,1 +1,1 @@
-{"type": "superflat-plus:anvil_drop", "blocks": [{"Name": "minecraft:copper_block", "Properties": {}}, {"Name": "minecraft:stone", "Properties": {}}], "result": {"Name": "minecraft:copper_ore", "Properties": {}}}
+{"type": "superflat-plus:anvil_drop", "blocks": [{"Name": "minecraft:copper_block"}, {"Name": "minecraft:stone"}], "result": {"Name": "minecraft:copper_ore"}}

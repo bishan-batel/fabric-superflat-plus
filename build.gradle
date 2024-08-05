@@ -78,8 +78,7 @@ publishing {
         }
     }
 
-    repositories {
-    }
+    repositories {}
 }
 
 compileKotlin.kotlinOptions.jvmTarget = "17"

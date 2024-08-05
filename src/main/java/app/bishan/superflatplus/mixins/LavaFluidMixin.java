@@ -16,15 +16,10 @@ public class LavaFluidMixin {
 
     @Redirect(method = "flow", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/WorldAccess;setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;I)Z"))
     boolean flow$setBlockState(WorldAccess world, BlockPos pos, BlockState state, int fluidState) {
-        Block block = Blocks.STONE;
-
-        var biome = world.getBiome(pos).getKey();
-
-
-        if (biome.isPresent() && SuperflatPlus.isSuperflat(world)) {
+        if (SuperflatPlus.isSuperflat(world)) {
             if (pos.getY() < 0)
-                block = Blocks.DEEPSLATE;
+                state = Blocks.DEEPSLATE.getDefaultState();
         }
-        return world.setBlockState(pos, block.getDefaultState(), 3);
+        return world.setBlockState(pos, state, 3);
     }
 }

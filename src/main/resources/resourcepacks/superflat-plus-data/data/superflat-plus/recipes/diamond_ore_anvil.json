@@ -1,1 +1,1 @@
-{"type": "superflat-plus:anvil_drop", "blocks": [{"Name": "minecraft:diamond_block", "Properties": {}}, {"Name": "minecraft:stone", "Properties": {}}], "result": {"Name": "minecraft:diamond_ore", "Properties": {}}}
+{"type": "superflat-plus:anvil_drop", "blocks": [{"Name": "minecraft:diamond_block"}, {"Name": "minecraft:stone"}], "result": {"Name": "minecraft:diamond_ore"}}

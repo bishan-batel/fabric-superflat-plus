@@ -1,1 +1,1 @@
-{"type": "superflat-plus:anvil_drop", "blocks": [{"Name": "minecraft:iron_block", "Properties": {}}, {"Name": "minecraft:deepslate", "Properties": {}}], "result": {"Name": "minecraft:deepslate_iron_ore", "Properties": {}}}
+{"type": "superflat-plus:anvil_drop", "blocks": [{"Name": "minecraft:iron_block"}, {"Name": "minecraft:deepslate"}], "result": {"Name": "minecraft:deepslate_iron_ore"}}

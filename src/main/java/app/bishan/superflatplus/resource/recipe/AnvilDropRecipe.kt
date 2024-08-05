@@ -9,6 +9,7 @@ import net.minecraft.loot.context.LootContextParameterSet
 import net.minecraft.loot.context.LootContextParameters
 import net.minecraft.recipe.Recipe
 import net.minecraft.registry.DynamicRegistryManager
+import net.minecraft.registry.RegistryWrapper
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
@@ -46,14 +47,13 @@ class AnvilDropRecipe(val result: BlockState, val ingredients: List<BlockState>)
     override fun matches(inventory: AnvilDropInventory?, world: World?): Boolean =
         world?.isSuperflat == true && inventory?.matches(ingredients) == true
 
-    override fun craft(inventory: AnvilDropInventory?, registryManager: DynamicRegistryManager?): ItemStack {
-        return getResult(registryManager);
+    override fun craft(input: AnvilDropInventory?, lookup: RegistryWrapper.WrapperLookup?): ItemStack {
+        return result.block.asItem().defaultStack
     }
 
     override fun fits(width: Int, height: Int) = true
-
-    override fun getResult(registryManager: DynamicRegistryManager?): ItemStack {
-        return result.block.asItem().defaultStack
+    override fun getResult(registriesLookup: RegistryWrapper.WrapperLookup?): ItemStack {
+        TODO("Not yet implemented")
     }
 
     override fun getSerializer() = AnvilRecipeSerializer

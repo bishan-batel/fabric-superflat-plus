@@ -1,1 +1,1 @@
-{"type": "superflat-plus:anvil_drop", "blocks": [{"Name": "minecraft:gold_block", "Properties": {}}, {"Name": "minecraft:stone", "Properties": {}}], "result": {"Name": "minecraft:gold_ore", "Properties": {}}}
+{"type": "superflat-plus:anvil_drop", "blocks": [{"Name": "minecraft:gold_block"}, {"Name": "minecraft:stone"}], "result": {"Name": "minecraft:gold_ore"}}

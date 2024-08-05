@@ -13,14 +13,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(FeatureManager.Builder.class)
 public abstract class FeatureBuilderMixin {
 
-	@Shadow
-	public abstract FeatureFlag addFlag(Identifier feature);
+    @Shadow
+    public abstract FeatureFlag addFlag(Identifier feature);
 
-	@Inject(
-			method = "<init>",
-			at = @At("TAIL")
-	)
-	void init(String universe, CallbackInfo ci) {
-		SuperflatPlus.setFeature(addFlag(SuperflatPlus.id("superflat_plus")));
-	}
+    @Inject(
+            method = "<init>",
+            at = @At("TAIL")
+    )
+    void init(String universe, CallbackInfo ci) {
+        SuperflatPlus.setFeature(addFlag(SuperflatPlus.id("superflat_plus")));
+    }
 }
